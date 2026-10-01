@@ -70,7 +70,7 @@ import { request } from '@/api/client'
 type Row = Record<string, string | number | null>
 
 const ENDPOINT = '/api/project'
-const columns = ["工程编号", "工程名称", "工程类型", "施工路段", "承建单位", "开工日期", "竣工日期", "工程状态"]
+const columns = ["工程编号", "工程名称", "工程类型", "施工路段", "承建单位", "开工日期", "竣工日期", "工程状态", "联动结论"]
 const actions = ["批准开工", "竣工验收", "驳回验收"]
 const statuses = ["待开工", "施工中", "已竣工", "已验收"]
 const stats = [{"label": "待开工工程", "value": 0}, {"label": "施工中工程", "value": 0}, {"label": "已竣工工程", "value": 0}]

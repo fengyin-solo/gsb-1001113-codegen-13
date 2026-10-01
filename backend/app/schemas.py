@@ -28,6 +28,13 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class AlarmPayload(BaseModel):
+    """统一告警接入：source_type 指明来源（水位/泵站/边坡/巡查），values 放该来源的原始字段。"""
+
+    source_type: str
+    values: dict[str, Any] = Field(default_factory=dict)
+
+
 
 class RoadSectionEntry(BaseModel):
     """管养路段明细结构。"""
