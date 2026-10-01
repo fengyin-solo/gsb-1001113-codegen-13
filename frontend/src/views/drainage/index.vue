@@ -70,7 +70,7 @@ import { request } from '@/api/client'
 type Row = Record<string, string | number | null>
 
 const ENDPOINT = '/api/drainage'
-const columns = ["设施编号", "设施类型", "所属路段", "桩号位置", "清理日期", "淤积程度", "管养班组", "设施状态"]
+const columns = ["设施编号", "设施类型", "所属路段", "桩号位置", "清理日期", "淤积程度", "管养班组", "设施状态", "关联事件", "事件级别", "管制结论", "事件版本", "数据来源"]
 const actions = ["安排清淤", "安排疏通", "登记损坏"]
 const statuses = ["正常", "淤积", "堵塞", "损坏"]
 const stats = [{"label": "正常设施", "value": 0}, {"label": "淤积设施", "value": 0}, {"label": "损坏设施", "value": 0}]

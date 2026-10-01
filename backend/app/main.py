@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.routers import ROUTERS
+from app.services.dispatch import dispatcher
 from app.store import store
 
 app = FastAPI(title="市政道路桥梁养护管理平台", version="1.0.0")
@@ -21,6 +22,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+def _bootstrap_dispatch_demo() -> None:
+    """起服时铺一条进行中的事件链，方便分拨台打开即有升级树与投影数据。"""
+    dispatcher.ensure_demo()
+
 
 for module in ROUTERS:
     app.include_router(module.router)

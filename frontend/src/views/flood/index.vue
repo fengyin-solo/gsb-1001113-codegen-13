@@ -70,7 +70,7 @@ import { request } from '@/api/client'
 type Row = Record<string, string | number | null>
 
 const ENDPOINT = '/api/flood'
-const columns = ["记录编号", "预警级别", "影响路段", "积水深度", "应急措施", "投入人员", "恢复时间", "防汛状态"]
+const columns = ["记录编号", "预警级别", "影响路段", "积水深度", "应急措施", "投入人员", "恢复时间", "防汛状态", "管制结论", "事件版本", "数据来源"]
 const actions = ["启动响应", "完成处置", "结束响应"]
 const statuses = ["待响应", "响应中", "已处置", "已结束"]
 const stats = [{"label": "待响应记录", "value": 0}, {"label": "响应中记录", "value": 0}, {"label": "已处置记录", "value": 0}]

@@ -28,6 +28,33 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class DispatchAck(BaseModel):
+    """分拨器统一回执：消息、合并/重放标记与事件最新视图。"""
+
+    ok: bool
+    message: str
+    event: dict[str, Any] | None = None
+    merged: bool = False
+    replay: bool = False
+    historical: str | None = None
+    before_level: str | None = None
+    after_level: str | None = None
+    downgraded: bool | None = None
+
+
+class CommandPayload(BaseModel):
+    """指挥部命令：级别 + 现场管制动作，可带事件版本做乐观锁。"""
+
+    级别: str | None = None
+    level: str | None = None
+    管制动作: str | None = None
+    control: str | None = None
+    命令编号: str | None = None
+    command_id: str | None = None
+    command_seq: int | None = None
+    expected_version: int | None = None
+
+
 
 class RoadSectionEntry(BaseModel):
     """管养路段明细结构。"""
